@@ -19,15 +19,6 @@
           This is the official Discord bot for the <a href="https://discord.gg/VkaRjYN">Team Neptune Discord</a> server. The source is available <a href="https://github.com/Team-Neptune/Korral-JS">here</a>.
       </b-card-text>
     </b-card>
-
-    <b-card title="SlashNotes">
-    <b-card-img src="/slashnotes.png" alt="SlashNotes Logo" class="w-25 rounded-circle"></b-card-img>
-    <br>
-    <br>
-      <b-card-text>
-          SlashNotes is a basic bot that you can use to store notes using Discord's Slash Commands UI. It was mainly a side project I did in my free time. You can <a href="https://discord.com/oauth2/authorize?client_id=799921906047647744&scope=bot%20applications.commands">invite it</a> or <a href="https://github.com/TechGeekGamer/SlashNotes">view the source code</a>.
-      </b-card-text>
-    </b-card>
     
   </b-card-group>
 </div>
