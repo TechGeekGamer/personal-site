@@ -1,5 +1,5 @@
 <template>
-<div>
+<b-container>
   <b-card-group deck>
 
     <b-card title="SlashRoles">
@@ -30,7 +30,7 @@
     </b-card>
     
   </b-card-group>
-</div>
+</b-container>
 </template>
 <script>
 export default {
