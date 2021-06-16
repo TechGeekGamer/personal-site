@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <b-container>
     <h1>My Links</h1>
 
     <b-list-group style="max-width: 300px;" class="mx-auto">
@@ -12,10 +12,11 @@
         <span class="mr-auto">Twitter</span>
       </b-list-group-item>
       <b-list-group-item class="d-flex align-items-center" href="https://discord.com/users/461560462991949863">
+        <b-avatar variant="info" src="/discord-logo.png" class="mr-3" style="background-color: white;"></b-avatar>
         <span class="mr-auto">Discord</span>
       </b-list-group-item>
     </b-list-group>
-  </div>
+  </b-container>
 </template>
 
 <script>
