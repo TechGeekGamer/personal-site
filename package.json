@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "cd dist && rm -rf * && vue-cli-service build --no-clean",
+    "deploy": "cd dist && git add -A && git commit -m 'Deploy'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
