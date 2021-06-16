@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>Other Projects</h1>
+    <h2>Other Projects</h2>
     <p>Here are some projects I've contributed to.</p>
     <br>
     <OtherProjects/>
