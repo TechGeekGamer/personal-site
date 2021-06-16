@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <b-img v-bind="pfp" rounded="circle" alt="Circle image"></b-img>
+    <h1>TechGeekGamer</h1>
     <br><br>
     <About/>
     <br>
