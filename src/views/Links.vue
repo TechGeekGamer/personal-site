@@ -2,7 +2,7 @@
   <b-container>
     <h2>My Links</h2>
 
-    <b-list-group style="max-width: 300px;" class="mx-auto">
+    <b-list-group style="max-width: 300px;" class="mx-auto shadow">
       <b-list-group-item href="https://github.com/TechGeekGamer" class="d-flex align-items-center">
         <b-img src="github-logo.png" class="mr-3 w-25"/>
         <span class="mr-auto">GitHub</span>
