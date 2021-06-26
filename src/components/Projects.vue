@@ -2,7 +2,7 @@
 <b-container>
   <b-card-group deck>
 
-    <b-card title="SlashRoles">
+    <b-card title="SlashRoles" class="shadow">
     <b-card-img src="/slashroles.png" alt="SlashRoles Logo" class="w-25 rounded-circle"></b-card-img>
     <br>
     <br>
@@ -11,7 +11,7 @@
       </b-card-text>
     </b-card>
 
-    <b-card title="BanSync">
+    <b-card title="BanSync" class="shadow">
     <b-card-img src="/bansync.png" alt="BanSync Logo" class="w-25 rounded-circle"></b-card-img>
     <br>
     <br>
@@ -20,7 +20,7 @@
       </b-card-text>
     </b-card>
 
-    <b-card title="SlashNotes">
+    <b-card title="SlashNotes" class="shadow">
     <b-card-img src="/slashnotes.png" alt="SlashNotes Logo" class="w-25 rounded-circle"></b-card-img>
     <br>
     <br>
