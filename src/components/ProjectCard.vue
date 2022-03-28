@@ -99,6 +99,6 @@ export default {
 </script>
 <style scoped>
     .projectCard {
-        min-height: 550px;
+        min-height: 560px;
     }
 </style>
