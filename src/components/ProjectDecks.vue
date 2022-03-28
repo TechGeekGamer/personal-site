@@ -38,9 +38,6 @@ export default {
     },
     created(){
       this.projects = require("../assets/projects.json");
-    },
-    mounted(){
-      console.log(this.projects)
     }
 }
 </script>

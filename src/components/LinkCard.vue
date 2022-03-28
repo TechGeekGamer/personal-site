@@ -10,15 +10,15 @@
             </b-collapse>
             <b-collapse v-model="showDropdown" class="mt-2">
                 <b-card class="mb-2">
-                    <div v-for="linkData in botLinks" :key="linkData.title" class="mb-2">
+                    <div v-for="linkData in links" :key="linkData.title" class="mb-2">
                         <b-button size="sm" :href="linkData.link">{{linkData.title}}</b-button>
                         <br>
                     </div>
                 </b-card>
             </b-collapse>
-            <b-button v-show="botLinks && !isQuestionMark" @click="toggleDropdown" variant="primary" class="mb-2">{{showDropdown?'Hide':'View'}} Links</b-button>
+            <b-button v-show="links && !isQuestionMark" @click="toggleDropdown" variant="primary" class="mb-2">{{showDropdown?'Hide':'View'}} Links</b-button>
+            <b-button v-show="singleLink && !isQuestionMark" variant="primary" class="mb-2" :href="singleLink" target="_blank">Jump to {{name}}</b-button>
             <template #footer>
-                <b-alert :show="isProjectInTeam" variant="secondary" class="text-muted">Team Project • <a :href="teamLink">{{team}}</a></b-alert>
                 <b-alert :show="true" v-for="alert in currentAlerts" :key="alert.text" :variant="alert.type">{{alert.text}}</b-alert>
             </template>
         </b-card>
@@ -30,14 +30,11 @@ export default {
     props:{
         name:String,
         image:String,
-        lgImage:String,
         questionMark:Boolean,
 
-        /** Teams */
-        team:String,
-        teamLink:String,
         /** Bots */
-        botLinks:Array,
+        links:Array,
+        singleLink:String,
         alerts:Array,
 
         indexNumber:Number
@@ -83,20 +80,20 @@ export default {
     },
     created(){
         if(this.isQuestionMark){
-            this.setCurrentName("Not Available");
+            this.setCurrentName("");
             if(this.alerts.length > 0){
                 this.setCurrentAlerts([
-                    {
-                        type:"info",
-                        text:"You can't see this project yet."
-                    },
+                    // {
+                    //     type:"info",
+                    //     text:""
+                    // },
                     ...this.alerts
                 ])
             }else {
                 this.setCurrentAlerts([
                     {
                         type:"info",
-                        text:"You can't see this project yet."
+                        text:""
                     }
                 ])
             }
@@ -109,6 +106,6 @@ export default {
 </script>
 <style scoped>
     .projectCard {
-        min-height: 560px;
+        min-height: 300px;
     }
 </style>
