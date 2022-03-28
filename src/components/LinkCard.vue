@@ -2,7 +2,10 @@
     <transition name="fade">
         <b-card :title="name" class="shadow projectCard" v-show="isCardVisible">
             <b-icon-question-circle-fill v-show="isQuestionMark" class="mb-2 mt-3" scale="3"/>
-            <b-card-img v-show="!isQuestionMark" :src="image" class="w-25 rounded-circle mb-2"/>
+            <b-button v-show="links && !isQuestionMark" @click="toggleDropdown" variant="primary" class="mb-2">{{showDropdown?'Hide':'View'}} Links</b-button>
+            <b-button v-show="singleLink && !isQuestionMark" variant="primary" class="mb-2" :href="singleLink" target="_blank">Jump to {{name}}</b-button>
+            <br>
+            <b-card-img v-show="!isQuestionMark" :src="image" class="w-25 rounded-circle mb-1"/>
             <b-collapse v-model="showDetails" class="mb-2">
                 <b-card-text>
                     <slot/>
@@ -11,13 +14,11 @@
             <b-collapse v-model="showDropdown" class="mt-2">
                 <b-card class="mb-2">
                     <div v-for="linkData in links" :key="linkData.title" class="mb-2">
-                        <b-button size="sm" :href="linkData.link">{{linkData.title}}</b-button>
+                        <b-button :target="linkData.link?'_blank':''" size="sm" :to="linkData.to" :href="linkData.link">{{linkData.title}}</b-button>
                         <br>
                     </div>
                 </b-card>
             </b-collapse>
-            <b-button v-show="links && !isQuestionMark" @click="toggleDropdown" variant="primary" class="mb-2">{{showDropdown?'Hide':'View'}} Links</b-button>
-            <b-button v-show="singleLink && !isQuestionMark" variant="primary" class="mb-2" :href="singleLink" target="_blank">Jump to {{name}}</b-button>
             <template #footer>
                 <b-alert :show="true" v-for="alert in currentAlerts" :key="alert.text" :variant="alert.type">{{alert.text}}</b-alert>
             </template>
@@ -106,6 +107,6 @@ export default {
 </script>
 <style scoped>
     .projectCard {
-        min-height: 300px;
+        min-height: 400px;
     }
 </style>
