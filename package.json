@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "mkdir dist && cd dist && rm -rf * && cd .. && vue-cli-service build --no-clean",
+    "prepare_build": "cd dist && rm -rf * && cd ..",
+    "build":"vue-cli-service build",
     "deploy": "cd dist && git add -A && git commit -m 'Deploy' && git push --set-upstream origin gh-pages",
     "lint": "vue-cli-service lint"
   },
