@@ -57,7 +57,7 @@ export default {
             return this.team && this.team != ""
         },
         currentAlerts(){
-            return this.overwriteSetAlerts.length > 1?this.overwriteSetAlerts:this.alerts;
+            return this.overwriteSetAlerts.length > 0?this.overwriteSetAlerts:this.alerts;
         },
         currentSetName(){
             return this.overwriteSetName || this.name;
