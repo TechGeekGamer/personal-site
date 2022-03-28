@@ -84,23 +84,23 @@ export default {
     },
     created(){
         if(this.isQuestionMark){
-            this.setCurrentName("Not Available");
-            if(this.alerts.length > 0){
-                this.setCurrentAlerts([
-                    {
-                        type:"info",
-                        text:"You can't see this project yet."
-                    },
-                    ...this.alerts
-                ])
-            }else {
-                this.setCurrentAlerts([
-                    {
-                        type:"info",
-                        text:"You can't see this project yet."
-                    }
-                ])
-            }
+            // this.setCurrentName("Not Available");
+            // if(this.alerts.length > 0){
+            //     this.setCurrentAlerts([
+            //         {
+            //             type:"info",
+            //             text:"You can't see this project yet."
+            //         },
+            //         ...this.alerts
+            //     ])
+            // }else {
+            //     this.setCurrentAlerts([
+            //         {
+            //             type:"info",
+            //             text:"You can't see this project yet."
+            //         }
+            //     ])
+            // }
         }
         setTimeout(() => {
             this.showCard = true;
