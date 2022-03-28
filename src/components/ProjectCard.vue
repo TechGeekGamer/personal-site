@@ -2,7 +2,7 @@
     <transition name="fade">
         <b-card :title="name" class="shadow projectCard" v-show="isCardVisible">
             <b-icon-question-circle-fill v-show="isQuestionMark" class="mb-2 mt-3" scale="3"/>
-            <b-button v-show="botLinks && !isQuestionMark" @click="toggleDropdown" variant="primary" class="mb-2">{{showDropdown?'Hide':'View'}} Links</b-button>
+            <b-button  v-show="botLinks && !isQuestionMark" @click="toggleDropdown" variant="primary" class="mb-2">{{showDropdown?'Hide':'View'}} Links</b-button>
             <br>
             <b-card-img v-show="!isQuestionMark" :src="image" class="w-25 rounded-circle mb-1"/>
             <b-collapse v-model="showDetails" class="mb-2">
@@ -13,7 +13,7 @@
             <b-collapse v-model="showDropdown" class="mt-2" >
                 <b-card class="mb-2">
                     <div v-for="linkData in botLinks" :key="linkData.title" class="mb-2">
-                        <b-button :target="linkData.link?'_blank':''" size="sm" :to="linkData.to" :href="linkData.link">{{linkData.title}}</b-button>
+                        <b-button :variant="linkData.type || 'secondary'" :target="linkData.link?'_blank':''" size="sm" :to="linkData.to" :href="linkData.link">{{linkData.title}}</b-button>
                         <br>
                     </div>
                 </b-card>
