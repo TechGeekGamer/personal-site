@@ -1,0 +1,221 @@
+[
+    {
+        "row":1,
+        "name":"BanSync",
+        "description":"Help keep out possible troublemakers from your server by knowing user's previous bans, or by linking your servers together to sync bans within them.",
+        "image":"/bansync.png",
+        "lgImage":"/",
+
+        "team":"Dcode Studios",
+        "teamLink":"https://github.com/Dcode-Studios",
+
+        "botLinks":[
+            {
+                "title":"Invite Bot",
+                "link":"https://bansync.dcode.site/invite"
+            },
+            {
+                "title":"Learn More",
+                "link":"https://bansync.dcode.site"
+            },
+            {
+                "title":"Support Server",
+                "link":"https://bansync.dcode.site"
+            },
+            {
+                "title":"Upvote bot on Top.GG",
+                "link":"https://top.gg/bot/743234197484994610/"
+            },
+            {
+                "title":"Upvote bot Discords.com",
+                "link":"https://discords.com/bots/bot/743234197484994610"
+            }
+            
+        ]
+    },
+    {
+        "row":1,
+        "name":"TimeoutTrack",
+        "description":"TimeoutTrack can provide logging for timeouts you make in your server. It also allows you to send DMs to users even when you use Discord's Built-In Timeout controls.",
+        "image":"/timeouttrack.png",
+        "lgImage":"/",
+
+        "team":null,
+        "teamLink":null,
+
+        "botLinks":[
+            {
+                "title":"Invite Bot",
+                "link":"https://discord.com/api/oauth2/authorize?client_id=925577249586032641&permissions=1099511627904&scope=bot%20applications.commands"
+            },
+            {
+                "title":"Support Server",
+                "link":"https://discord.gg/zaK2YAMH4u"
+            },
+            {
+                "title":"Top.GG Page",
+                "link":"https://top.gg/bot/925577249586032641"
+            },
+            {
+                "title":"Discords.com page",
+                "link":"https://discords.com/bots/bot/925577249586032641"
+            },
+            {
+                "title":"DiscordBotList page",
+                "link":"https://discordbotlist.com/bots/timeouttrack"
+            }
+        ],
+        "alerts":[
+            {
+                "type":"primary",
+                "text":"Recently updated! 🎉"
+            }
+        ]
+    },
+    {
+        "row":1,
+        "name":"SlashRoles",
+        "description":"SlashRoles is a slash command bot that lets you setup options in the Slash Command menu to assign roles.",
+        "image":"/slashroles.png",
+        "lgImage":"/",
+
+        "team":"Dcode Studios",
+        "teamLink":"https://github.com/Dcode-Studios",
+
+        "botLinks":[
+            {
+                "title":"Invite Bot",
+                "link":"https://discord.com/oauth2/authorize?client_id=817248082126700565&permissions=268435456&scope=bot%20applications.commands"
+            },
+            {
+                "title":"Learn More",
+                "link":"https://slashroles.dcode.site"
+            },
+            {
+                "title":"Support Server",
+                "link":"https://discord.gg/HK4Q2Vuk3N"
+            },
+            {
+                "title":"Upvote bot on Top.GG",
+                "link":"https://top.gg/bot/817248082126700565/"
+            },
+            {
+                "title":"Upvote bot Discords.com",
+                "link":"https://discords.com/bots/bot/817248082126700565"
+            }
+        ]
+    },
+    {
+        "row":2,
+        "name":"SlashNotes",
+        "description":"SlashNotes is a basic bot that you can use to store notes using Discord's Slash Commands UI. It was mainly a side project I did in my free time.",
+        "image":"/slashnotes.png",
+        "lgImage":"/",
+
+        "team":null,
+        "teamLink":null,
+
+        "botLinks":[
+            {
+                "title":"Invite Bot",
+                "link":"https://discord.com/oauth2/authorize?client_id=799921906047647744&scope=bot%20applications.commands"
+            },
+            {
+                "title":"Source Code",
+                "link":"https://github.com/TechGeekGamer/SlashNotes"
+            }
+        ],
+        "alerts":[
+            {
+                "type":"danger",
+                "text":"This project is unmaintained."
+            }
+        ]
+    },
+    {
+        "row":1,
+        "name":"Korral-JS",
+        "description":"This is the official Discord bot for the <a href=\"https://discord.gg/VkaRjYN\">Team Neptune Discord</a> server.</a>.",
+        "image":"/korral.png",
+        "lgImage":"/",
+
+        "team":"Team Neptune",
+        "teamLink":"https://github.com/Team-Neptune",
+
+        "botLinks":[
+            {
+                "title":"Source Code",
+                "link":"https://github.com/Team-Neptune/Korral-JS"
+            },
+            {
+                "title":"Official Server",
+                "link":"https://discord.gg/VkaRjYN"
+            }
+        ],
+        "alerts":[]
+    },
+    {
+        "row":2,
+        "name":"Korral Interactions",
+        "description":"This was the official webserver for interactions (Slash Commands, Buttons, etc.) for the <a href=\"https://discord.gg/VkaRjYN\">Team Neptune Discord</a> server.",
+        "image":"/korral_interactions.png",
+        "lgImage":"/",
+
+        "team":"Team Neptune",
+        "teamLink":"https://github.com/Team-Neptune",
+
+        "botLinks":[
+            {
+                "title":"Source Code",
+                "link":"https://github.com/Team-Neptune/Korral-Interactions"
+            },
+            {
+                "title":"Official Server",
+                "link":"https://discord.gg/VkaRjYN"
+            }
+        ],
+        "alerts":[
+            {
+                "type":"danger",
+                "text":"This project is unmaintained."
+            }
+        ]
+    },
+    {
+        "row":2,
+        "name":"DeepSea Builder",
+        "description":"Create a custom DeepSea Nintendo Switch CFW package right from within Discord! Run the <code>/builder</code> slash command to start creating your DeepSea Nintendo Switch CFW package!",
+        "image":"/DeepSeaBuilder.png",
+        "lgImage":"/",
+
+        "team":"Team Neptune",
+        "teamLink":"https://github.com/Team-Neptune",
+
+        "botLinks":[
+            {
+                "title":"Invite Bot",
+                "link":"https://discord.com/oauth2/authorize?client_id=904577312677310496&permissions=0&scope=bot%20applications.commands"
+            },
+            {
+                "title":"Official Server",
+                "link":"https://discord.gg/VkaRjYN"
+            }
+        ],
+        "alerts":[],
+        "hide":false
+    },
+    {
+        "row":2,
+        "name":"",
+        "description":"",
+        "image":"",
+        "lgImage":"/",
+
+        "team":null,
+        "teamLink":null,
+
+        "botLinks":[],
+        "alerts":[],
+        "hide":true
+    }
+]
