@@ -135,7 +135,7 @@
     {
         "row":1,
         "name":"Korral-JS",
-        "description":"This is the official Discord bot for the <a href=\"https://discord.gg/VkaRjYN\">Team Neptune Discord</a> server.</a>.",
+        "description":"This is the official Discord bot for the <a href=\"https://discord.gg/VkaRjYN\">Team Neptune Discord</a> server</a>.",
         "image":"/korral.png",
         "lgImage":"/",
 
