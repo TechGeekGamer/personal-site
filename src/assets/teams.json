@@ -1,0 +1,37 @@
+[
+    {
+        "row":1,
+        "title":"Dcode Studios",
+        "image":"/dcode_studios.jpg",
+        "description":"Coders worldwide, making Discord bots to improve your experience and everyone else’s.",
+        "link":"https://github.com/Dcode-Studios",
+        "alerts":[
+            {
+                "type":"info",
+                "text":"Role: Bot Developer"
+            }
+        ]
+    },
+    {
+        "row":1,
+        "title":"Team Neptune",
+        "image":"/team_neptune.png",
+        "description":"Homebrew development team",
+        "link":"https://github.com/Team-Neptune",
+        "alerts":[
+            {
+                "type":"info",
+                "text":"Role: Bot Developer"
+            }
+        ]
+    },
+    {
+        "row":1,
+        "title":"",
+        "image":"/",
+        "description":"",
+        "link":"",
+        "alerts":[],
+        "hide":true
+    }
+]

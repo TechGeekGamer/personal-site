@@ -54,7 +54,7 @@ export default {
             return this.team && this.team != ""
         },
         currentAlerts(){
-            return this.overwriteSetAlerts || this.alerts;
+            return this.overwriteSetAlerts?.length >0?this.overwriteSetAlerts:this.alerts;
         },
         currentSetName(){
             return this.overwriteSetName || this.name;
@@ -80,25 +80,6 @@ export default {
         }
     },
     created(){
-        if(this.isQuestionMark){
-            this.setCurrentName("");
-            if(this.alerts.length > 0){
-                this.setCurrentAlerts([
-                    // {
-                    //     type:"info",
-                    //     text:""
-                    // },
-                    ...this.alerts
-                ])
-            }else {
-                this.setCurrentAlerts([
-                    {
-                        type:"info",
-                        text:""
-                    }
-                ])
-            }
-        }
         setTimeout(() => {
             this.showCard = true;
         }, 500+(Number(this.indexNumber) * 100));
