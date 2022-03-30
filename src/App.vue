@@ -1,10 +1,11 @@
 <template>
   <div id="app">
+    <b-collapse v-model="showImageTop">
     <b-row class="justify-content-md-center">
       <transition name="fade">
-        <b-col v-show="showAboutMeMain" col lg="5">
+        <b-col col lg="5">
           <transition name="fade">
-            <div v-show="showAboutMeMain">
+            <div v-show="showImageTop">
               <b-img v-bind="pfp" rounded="circle" alt="Circle image"></b-img>
               <h1>Daniel💻</h1>
               <h5 class="text-muted">[he/him]</h5>
@@ -13,23 +14,25 @@
         </b-col>
       </transition>
     </b-row>
+    </b-collapse>
     <br>
     <transition name="fade">
       <b-row align-h="center">
         <b-col cols="auto"/>
         <b-col cols="auto">
           <b-nav pills v-show="showNavButtons" class="mb-2">
-            <b-nav-item :active="isOnAboutMePage" to="about">About Me</b-nav-item>
+            <b-nav-item :active="isOnAboutMePage" to="about"><b-icon-arrow-left-circle-fill v-show="!showImageTop" class="mr-2" />About Me</b-nav-item>
             <b-nav-item :active="isOnProjectsPage" to="projects">Projects</b-nav-item>
             <b-nav-item :active="isOnSocialsPage" to="links">Links</b-nav-item>
+            <b-nav-item :active="isOnTeamsPage" to="teams">Teams</b-nav-item>
           </b-nav>
         </b-col>
         <b-col cols="auto"/>
       </b-row>
     </transition>
-    <transition name="fade">
+    <!-- <transition name="fade"> -->
       <router-view v-show="showPage"/>
-    </transition>
+    <!-- </transition> -->
   </div>
 </template>
 
@@ -45,13 +48,19 @@ export default {
   },
   computed:{
     isOnAboutMePage(){
-      return this.$route.fullPath === '/about'
+      return this.$route.fullPath.startsWith('/about')
     },
     isOnProjectsPage(){
-      return this.$route.fullPath === '/projects'
+      return this.$route.fullPath.startsWith('/projects')
     },
     isOnSocialsPage(){
-      return this.$route.fullPath === '/links'
+      return this.$route.fullPath.startsWith('/links')
+    },
+    isOnTeamsPage(){
+      return this.$route.fullPath.startsWith('/teams')
+    },
+    showImageTop(){
+      return (this.isOnProjectsPage || this.isOnSocialsPage || this.isOnTeamsPage) === false
     }
   },
   mounted(){
@@ -70,7 +79,7 @@ export default {
 
 <style>
 body {
-  background-color: rgb(211, 197, 197);
+  background-color: rgba(211, 197, 197, 0.5);
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
