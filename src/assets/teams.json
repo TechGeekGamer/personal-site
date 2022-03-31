@@ -27,11 +27,16 @@
     },
     {
         "row":1,
-        "title":"",
-        "image":"/",
-        "description":"",
-        "link":"",
-        "alerts":[],
-        "hide":true
+        "title":"Titanium Devs",
+        "image":"/titanium_devs.png",
+        "description":"Titanium Devs is a small organization that makes Discord bots such as Quarion and Azure.",
+        "link":"https://github.com/titaniumdevs",
+        "alerts":[
+            {
+                "type":"info",
+                "text":"Role: Bot Developer"
+            }
+        ],
+        "hide":false
     }
 ]
