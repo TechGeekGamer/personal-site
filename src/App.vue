@@ -20,12 +20,14 @@
       <b-row align-h="center">
         <b-col cols="auto"/>
         <b-col cols="auto">
-          <b-nav pills v-show="showNavButtons" class="mb-2">
-            <b-nav-item :active="isOnAboutMePage" to="about"><b-icon-arrow-left-circle-fill v-show="!showImageTop" class="mr-2" />About Me</b-nav-item>
-            <b-nav-item :active="isOnProjectsPage" to="projects">Projects</b-nav-item>
-            <b-nav-item :active="isOnSocialsPage" to="links">Links</b-nav-item>
-            <b-nav-item :active="isOnTeamsPage" to="teams">Teams</b-nav-item>
-          </b-nav>
+          <transition name="fade">
+            <b-nav pills v-show="showNavButtons" class="mb-2">
+              <b-nav-item :active="isOnAboutMePage" to="about"><b-icon-arrow-left-circle-fill v-show="!showImageTop" class="mr-2" />About Me</b-nav-item>
+              <b-nav-item :active="isOnProjectsPage" to="projects">Projects</b-nav-item>
+              <b-nav-item :active="isOnSocialsPage" to="links">Links</b-nav-item>
+              <b-nav-item :active="isOnTeamsPage" to="teams">Teams</b-nav-item>
+            </b-nav>
+          </transition>
         </b-col>
         <b-col cols="auto"/>
       </b-row>

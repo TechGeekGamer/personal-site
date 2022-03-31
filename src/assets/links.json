@@ -17,10 +17,11 @@
     },
     {
         "row":1,
-        "title":"Twitter",
-        "image":"/twitter-logo.png",
-        "description":"I don't really post here much, but if I do this is where you can find it.",
-        "link":"https://twitter.com/techgeekgamer",
-        "alerts":[]
+        "title":"",
+        "image":"",
+        "description":"",
+        "link":"",
+        "alerts":[],
+        "hide":true
     }
 ]
