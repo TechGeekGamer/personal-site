@@ -4,16 +4,7 @@
         "title":"Discord",
         "image":"/discord-logo.png",
         "description":"This is where I spend most of my free time. I also develop apps and bots on here (check out my Projects page!)",
-        "links":[
-            {
-                "title":"Projects",
-                "to":"projects"
-            },
-            {
-                "title":"View me on Discord",
-                "link":"https://discord.com/users/461560462991949863"
-            }
-        ],
+        "link":"https://discord.com/users/461560462991949863",
         "alerts":[]
     },
     {
