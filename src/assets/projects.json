@@ -1,40 +1,6 @@
 [
     {
         "row":1,
-        "name":"BanSync",
-        "description":"Help keep out possible troublemakers from your server by knowing user's previous bans, or by linking your servers together to sync bans within them.",
-        "image":"/bansync.png",
-        "lgImage":"/",
-
-        "team":"Dcode Studios",
-        "teamLink":"https://github.com/Dcode-Studios",
-
-        "botLinks":[
-            {
-                "title":"Invite Bot",
-                "link":"https://bansync.dcode.site/invite"
-            },
-            {
-                "title":"Learn More",
-                "link":"https://bansync.dcode.site"
-            },
-            {
-                "title":"Support Server",
-                "link":"https://bansync.dcode.site"
-            },
-            {
-                "title":"Upvote bot on Top.GG",
-                "link":"https://top.gg/bot/743234197484994610/"
-            },
-            {
-                "title":"Upvote bot Discords.com",
-                "link":"https://discords.com/bots/bot/743234197484994610"
-            }
-            
-        ]
-    },
-    {
-        "row":1,
         "name":"TimeoutTrack",
         "description":"TimeoutTrack can provide logging for timeouts you make in your server. It also allows you to send DMs to users even when you use Discord's Built-In Timeout controls.",
         "image":"/timeouttrack.png",
@@ -71,6 +37,62 @@
                 "text":"Recently updated! 🎉"
             }
         ]
+    },
+    {
+        "row":1,
+        "name":"BanSync",
+        "description":"Help keep out possible troublemakers from your server by knowing user's previous bans, or by linking your servers together to sync bans within them.",
+        "image":"/bansync.png",
+        "lgImage":"/",
+
+        "team":"Dcode Studios",
+        "teamLink":"https://github.com/Dcode-Studios",
+
+        "botLinks":[
+            {
+                "title":"Invite Bot",
+                "link":"https://bansync.dcode.site/invite"
+            },
+            {
+                "title":"Learn More",
+                "link":"https://bansync.dcode.site"
+            },
+            {
+                "title":"Support Server",
+                "link":"https://bansync.dcode.site"
+            },
+            {
+                "title":"Upvote bot on Top.GG",
+                "link":"https://top.gg/bot/743234197484994610/"
+            },
+            {
+                "title":"Upvote bot Discords.com",
+                "link":"https://discords.com/bots/bot/743234197484994610"
+            }
+            
+        ]
+    },
+    {
+        "row":1,
+        "name":"Korral-JS",
+        "description":"This is the official Discord bot for the <a href=\"https://discord.gg/VkaRjYN\">Team Neptune Discord</a> server</a>.",
+        "image":"/korral.png",
+        "lgImage":"/",
+
+        "team":"Team Neptune",
+        "teamLink":"https://github.com/Team-Neptune",
+
+        "botLinks":[
+            {
+                "title":"Source Code",
+                "link":"https://github.com/Team-Neptune/Korral-JS"
+            },
+            {
+                "title":"Official Server",
+                "link":"https://discord.gg/VkaRjYN"
+            }
+        ],
+        "alerts":[]
     },
     {
         "row":1,
@@ -131,28 +153,6 @@
                 "text":"This project is unmaintained."
             }
         ]
-    },
-    {
-        "row":1,
-        "name":"Korral-JS",
-        "description":"This is the official Discord bot for the <a href=\"https://discord.gg/VkaRjYN\">Team Neptune Discord</a> server</a>.",
-        "image":"/korral.png",
-        "lgImage":"/",
-
-        "team":"Team Neptune",
-        "teamLink":"https://github.com/Team-Neptune",
-
-        "botLinks":[
-            {
-                "title":"Source Code",
-                "link":"https://github.com/Team-Neptune/Korral-JS"
-            },
-            {
-                "title":"Official Server",
-                "link":"https://discord.gg/VkaRjYN"
-            }
-        ],
-        "alerts":[]
     },
     {
         "row":2,
