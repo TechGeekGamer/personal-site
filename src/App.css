@@ -19,7 +19,7 @@
 }
 
 .languageTagBorder {
-  @apply border-2 rounded-sm dark:text-white min-w-full;
+  @apply rounded-sm dark:text-white min-w-full;
 }
 
 .projectSectionHeader {
