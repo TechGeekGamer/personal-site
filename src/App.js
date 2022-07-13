@@ -136,7 +136,7 @@ function App() {
                         {project.verified && (
                           <a
                             className="btn-verified-bot ml-1 inline-flex align-middle"
-                            href="https://support.discord.com/hc/en-us/articles/360040720412-Bot-Verification-and-Data-Whitelisting#h_46b3869c-6d50-43fc-b07c-9ed7569a1160"
+                            href="https://support-dev.discord.com/hc/en-us/articles/6207083765655-What-is-Bot-Verification-"
                             target={"_blank"}
                             rel="noreferrer"
                             title="Verified Discord Bot"
