@@ -2,7 +2,7 @@
   {
     "type": "Discord Bot",
     "name": "TimeoutTrack",
-    "description": "TimeoutTrack can provide logging for timeouts you make in your server. It also allows you to send DMs to users even when you use Discord's Built-In Timeout controls.",
+    "description": "TimeoutTrack can provide logging for timeouts you make in your server, send DMs to users when you use Discord's Built-In Timeout controls, and tell users why Discord's AutoMod muted them!",
     "image": "images/timeouttrack.svg",
     "lgImage": "/",
 
@@ -51,7 +51,7 @@
       },
       {
         "title": "Support Server",
-        "link": "https://bansync.dcode.site"
+        "link": "https://discord.gg/Vh9hPTF"
       },
       {
         "title": "Upvote Bot",
