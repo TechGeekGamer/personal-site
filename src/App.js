@@ -38,11 +38,12 @@ function App() {
                 <div className="flex flex-col items-center text-center justify-center">
                   {/* Name */}
                   <h2 className="myNameTitle">Daniel</h2>
-                  <div className="w-12 h-1 bg-indigo-500 rounded mt-2"></div>
+                  <div className="w-40 md:w-20 h-1 bg-indigo-500 rounded mt-2"></div>
                   {/* Short Desc */}
                   <p className="myNameText py-5">High Schooler, Programmer</p>
+                  <div className="w-40 md:w-20 h-1 bg-indigo-500 rounded"></div>
                   {/* Skill Tags */}
-                  <div className="grid grid-cols-2 gap-4 flex-wrap w-full">
+                  <div className="grid grid-cols-2 gap-4 flex-wrap w-full py-5">
                     {skills.map((language, index) => {
                       return (
                         <div className="languageTagBorder" key={index}>
@@ -71,7 +72,7 @@ function App() {
                   however I started getting into programming during 2020. So
                   far, I have primarily worked on{" "}
                   <a
-                    href="http://discord.com/"
+                    href="https://discord.com/"
                     className="link-btn"
                     target="_blank"
                     rel="noreferrer"
@@ -124,7 +125,7 @@ function App() {
                   <div className="border-opacity-60 flex flex-col rounded-lg overflow-hidden h-full border-2 border-gray-200">
                     {/* Project Image */}
                     <img
-                      className="lg:h-52 md:h-37 w-full object-cover bg-white"
+                      className="h-36 w-full object-cover bg-white"
                       src={project.image}
                       alt={project.image_alt}
                     />
@@ -141,20 +142,23 @@ function App() {
                             rel="noreferrer"
                             title="Verified Discord Bot"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-4 w-4 ml-1 mr-1"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth={2}
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M5 13l4 4L19 7"
-                              />
-                            </svg>
+                            <div className="inline-flex pr-1">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-4 w-4 ml-1 mr-1"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                strokeWidth={2}
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              <span>Verified Bot</span>
+                            </div>
                           </a>
                         )}
                       </h2>
