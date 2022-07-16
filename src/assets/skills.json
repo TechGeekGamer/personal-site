@@ -1,0 +1,22 @@
+[
+  {
+    "title": "JavaScript",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    "alt_text": "JavaScript logo"
+  },
+  {
+    "title": "TypeScript",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    "alt_text": "TypeScript logo"
+  },
+  {
+    "title": "Python",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    "alt_text": "Python logo"
+  },
+  {
+    "title": "HTML",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg",
+    "alt_text": "HTML logo"
+  }
+]
