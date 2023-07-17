@@ -1,15 +1,45 @@
 [
   {
     "type": "Discord Bot",
+    "name": "BanSync",
+    "description": "BanSync was one of my first public bots, and the first I've ever had verified. It continues to grow to this day, passing 1,000 servers! It can maintain a global ban record across all of Discord, or can be used to sync bans between servers in groups.",
+    "image": "icons/bansync_logo.png",
+    "lgImage": "banners/bansync.png",
+
+    "team": "Dcode Studios",
+    "teamLink": "https://github.com/Dcode-Studios",
+
+    "links": [
+      {
+        "title": "Invite Bot",
+        "link": "https://bansync.dcode.site/invite"
+      },
+      {
+        "title": "Learn More",
+        "link": "https://bansync.dcode.site"
+      },
+      {
+        "title": "Support Server",
+        "link": "https://discord.gg/Vh9hPTF"
+      },
+      {
+        "title": "Upvote Bot",
+        "link": "https://top.gg/bot/743234197484994610/"
+      }
+    ],
+    "verified": true
+  },
+  {
+    "type": "Discord Bot",
     "name": "TimeoutTrack",
-    "description": "TimeoutTrack can provide logging for timeouts you make in your server, send DMs to users when you use Discord's Built-In Timeout controls, and tell users why Discord's AutoMod muted them!",
-    "image": "images/timeouttrack.svg",
-    "lgImage": "/",
+    "description": "TimeoutTrack can provide logging for timeouts you make in your server, send DMs to users when you use Discord's Built-In Timeout controls, and tell users why Discord's AutoMod muted them! This was my second verified bot.",
+    "image": "icons/timeout_track_logo.webp",
+    "lgImage": "banners/timeouttrack.svg",
 
     "team": null,
     "teamLink": null,
 
-    "botLinks": [
+    "links": [
       {
         "title": "Invite Bot",
         "link": "https://discord.com/api/oauth2/authorize?client_id=925577249586032641&permissions=1099511627904&scope=bot%20applications.commands"
@@ -36,44 +66,15 @@
   },
   {
     "type": "Discord Bot",
-    "name": "BanSync",
-    "description": "Help keep out possible troublemakers from your server by knowing user's previous bans, or by linking your servers together to sync bans within them.",
-    "image": "images/bansync.png",
-    "lgImage": "/",
-
-    "team": "Dcode Studios",
-    "teamLink": "https://github.com/Dcode-Studios",
-
-    "botLinks": [
-      {
-        "title": "Invite Bot",
-        "link": "https://bansync.dcode.site/invite"
-      },
-      {
-        "title": "Learn More",
-        "link": "https://bansync.dcode.site"
-      },
-      {
-        "title": "Support Server",
-        "link": "https://discord.gg/Vh9hPTF"
-      },
-      {
-        "title": "Upvote Bot",
-        "link": "https://top.gg/bot/743234197484994610/"
-      }
-    ]
-  },
-  {
-    "type": "Discord Bot",
     "name": "SlashRoles",
     "description": "SlashRoles is a slash command bot that lets you setup options in the Slash Command menu to assign roles.",
-    "image": "images/slashroles.png",
-    "lgImage": "/",
+    "image": "icons/slashroles.webp",
+    "lgImage": "banners/slashroles.png",
 
     "team": "Dcode Studios",
     "teamLink": "https://github.com/Dcode-Studios",
 
-    "botLinks": [
+    "links": [
       {
         "title": "Invite Bot",
         "link": "https://discord.com/oauth2/authorize?client_id=817248082126700565&permissions=268435456&scope=bot%20applications.commands"
@@ -89,6 +90,27 @@
       {
         "title": "Upvote Bot",
         "link": "https://top.gg/bot/817248082126700565/"
+      }
+    ]
+  },
+  {
+    "type": "Open Source Project",
+    "name": "DeepSea",
+    "description": "DeepSea is an All-in-One Nintendo Switch Custom Firmware package. Created by Team Neptune (Founded by hax4dayz), it includes Atmosphere, Hekate, and more! It is the successor to the once popular Kosmos package. I used to provide the bots for the Team Neptune Discord server, but have since moved on to other projects.",
+    "image": "icons/team_neptune.png",
+    "lgImage": "banners/deepsea.png",
+
+    "team": "Team Neptune",
+    "teamLink": "https://github.com/Team-Neptune",
+
+    "links": [
+      {
+        "title": "Join Team Neptune Discord",
+        "link": "https://discord.gg/team-neptune-703301751171973190"
+      },
+      {
+        "title": "View on GitHub",
+        "link": "https://github.com/Team-Neptune"
       }
     ]
   }

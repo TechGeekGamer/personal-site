@@ -1,200 +1,229 @@
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
-import BuildPatchModal from "./buildpatchmodal";
+import {
+  ArrowDownIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
+} from "@heroicons/react/24/solid";
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 const projects = require("./assets/projects.json");
 const links = require("./assets/links.json");
 const skills = require("./assets/skills.json");
-// const largeImageText = "Daniel";
-// const smallImageText = "";
 
 function App() {
+  const landingMeIcon = useRef(null);
+  const [landingMeActionVisible, setLandingMeIcon] = useState(true);
+  const [currentProject, setCurrentProject] = useState(0);
+
+  useEffect(() => {
+    // Create observer to detect helloTitle?.current leaving the viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setLandingMeIcon(true);
+          } else {
+            setLandingMeIcon(false);
+          }
+        });
+      },
+      { threshold: [0] }
+    );
+    observer.observe(landingMeIcon.current);
+
+    // Cleanup
+    return () => {
+      observer.disconnect();
+    };
+  }, [landingMeIcon]);
   return (
-    <div className="dark:bg-gray-700">
-      <BuildPatchModal></BuildPatchModal>
+    <div class="snap-y snap-mandatory h-screen overflow-scroll">
+      {/* floating top bar */}
+      <div
+        className={classNames(
+          "sticky top-2 flex flex-row mx-2 lg:mx-10 place-content-center duration-300 transition-opacity items-center gap-2 rounded-lg p-2 z-50 bg-slate-900/40",
+          landingMeActionVisible ? "opacity-0" : "opacity-100"
+        )}
+      >
+        <img
+          src="me.png"
+          className="w-14 rounded-full drop-shadow-lg"
+          alt="Me"
+        />
+        <h2 className="text-4xl font-bold">Daniel</h2>
+        <h2 className="text-3xl">| My Projects</h2>
+      </div>
       {/* Intro */}
-      <section className="text-gray-600 body-font">
-        <div className="container px-5 py-9 mx-auto flex flex-col">
-          <div className="lg:w-4/6 mx-auto relative">
-            {/* <div className="relative rounded-lg h-64 overflow-hidden shadow-md shadow-indigo-500">
-              <img
-                alt="content"
-                className="h-full w-full object-cover"
-                src="banner.png"
-              />
-              <h1 className="absolute font-bold text-4xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 [text-shadow:5px_5px_5px_#64748b] w-full text-center">
-                {largeImageText}
-                {smallImageText && <p className="text-2xl">{smallImageText}</p>}
+      <section className="snap-start relative container mx-auto min-h-screen grid place-content-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+          <div>
+            <article className="prose mx-10">
+              <h1 className="introHeader" ref={landingMeIcon}>
+                Hi, I'm Daniel!
               </h1>
-            </div> */}
-            <div className="flex flex-col sm:flex-row mt-10">
-              <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8 mb-2">
-                <div className="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
-                  <img
-                    src="me.png"
-                    className="w-full h-full rounded-full drop-shadow-lg"
-                    alt="Me"
-                  />
-                </div>
-                <div className="flex flex-col items-center text-center justify-center">
-                  {/* Name */}
-                  <h2 className="myNameTitle">Daniel</h2>
-                  <div className="w-40 md:w-20 h-1 bg-indigo-500 rounded mt-2"></div>
-                  {/* Short Desc */}
-                  <p className="myNameText py-5">High Schooler, Programmer</p>
-                  <div className="w-40 md:w-20 h-1 bg-indigo-500 rounded"></div>
-                  {/* Skill Tags */}
-                  <div className="grid grid-cols-2 gap-4 flex-wrap w-full py-5">
-                    {skills.map((language, index) => {
-                      return (
-                        <div className="languageTagBorder" key={index}>
-                          <span className="inline-flex items-center align-middle">
-                            <div className="rounded-md overflow-hidden">
-                              <img
-                                className="w-5 h-5 object-cover"
-                                src={language.icon}
-                                alt={language.alt_text}
-                              />
-                            </div>
-                            <span className="ml-1">{language.title}</span>
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-              <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-                {/* Header */}
-                <span className="aboutMeTitle">Hey, my name is Daniel!</span>
-                {/* About Me */}
-                <p className="aboutMeText">
-                  I've always had a passion for technology since I was young,
-                  however I started getting into programming during 2020. So
-                  far, I have primarily worked on{" "}
+              <p>
+                I'm a (soon to be) college student, mainly interested in
+                Computer Science and Web Development.
+              </p>
+              <p>
+                I've always been interested in computers and technology, but
+                didn't really start getting interested in programming until the
+                COVID-19 pandemic started. So far, I've learned a lot with
+                Discord bots, but I hope to learn more about web development and
+                other programming languages.
+              </p>
+              <p className="italic">Scroll down to see some of my projects</p>
+            </article>
+            {/* Links */}
+            <div className="flex flex-wrap grid-flow-col gap-4 mx-10 my-4 lg:place-content-start place-content-center">
+              {links.map((link, index) => {
+                return (
                   <a
-                    href="https://discord.com/"
-                    className="link-btn"
+                    className="socials-btn transition-all tooltip"
+                    data-tip={link.title}
+                    href={link.link}
                     target="_blank"
                     rel="noreferrer"
+                    key={index}
                   >
-                    Discord
-                  </a>{" "}
-                  bots, however I want to try to expand to other things in the
-                  future. When I have free time I'm usually playing video games,
-                  working on various projects, and talking to friends.
-                </p>
-                {/* Links */}
-                <div className="flex flex-wrap grid-flow-col gap-4 md:grid-cols-2 md:place-content-start place-content-center">
-                  {links.map((link, index) => {
-                    return (
-                      <a
-                        className="inline-flex socials-btn"
-                        href={link.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        key={index}
-                      >
-                        <div className="p-1 inline-flex">
-                          {link.icon && (
-                            <img
-                              className="w-6 h-6 pr-1 white-svg"
-                              src={link.icon}
-                              alt={link.alt_text}
-                            />
-                          )}
-                          <span>{link.title}</span>
-                        </div>
-                      </a>
-                    );
-                  })}
+                    {link.icon && (
+                      <img
+                        className="w-6 h-6 white-svg"
+                        src={link.icon}
+                        alt={link.alt_text}
+                      />
+                    )}
+                  </a>
+                );
+              })}
+            </div>
+            {/* Skills */}
+            {/* <div className="mx-10">
+              <h2 className="text-2xl font-bold">Skills</h2>
+              <div className="grid grid-flow-col place-content-start gap-2">
+                {skills.map((skill) => {
+                  return (
+                    <div data-tip={skill.title} className="tooltip tooltip-top">
+                      <img
+                        className="w-8 h-8"
+                        src={skill.icon}
+                        alt={skill.alt_text}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div> */}
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <img
+              src="me.png"
+              className="w-32 lg:w-64 rounded-full drop-shadow-lg"
+              alt="Me"
+            />
+          </div>
+        </div>
+      </section>
+      {projects
+        .filter((p, i) => currentProject === i)
+        .map((project, index) => {
+          return (
+            <div className="min-h-screen relative">
+              {/* Background */}
+              <img
+                src={project.lgImage}
+                alt={`Background for ${project.name}`}
+                // put the image in the background and allow objects to be placed on top of it
+                className="absolute w-full h-full object-cover z-0 bg-white"
+              />
+              {/* Project */}
+              <div className="sticky w-screen h-screen z-10 bg-secondary/50 backdrop-filter backdrop-blur-lg snap-center">
+                <div className="container mx-auto h-full grid place-content-center">
+                  {/* Project Card */}
+                  <div className="grid shadow-xl bg-base-200/90 rounded-lg gap-2 m-2 p-2 min-h-[350px]">
+                    <div className="prose">
+                      <h1>
+                        <img
+                          src={project.image ?? "me.png"}
+                          className="w-12 h-12 inline-block my-0 rounded-lg mr-2"
+                          alt={`Icon for ${project.name}`}
+                          onError={(e) => {
+                            e.onError = null;
+                            e.currentTarget.src = "me.png";
+                          }}
+                        />
+                        {project.name}
+                      </h1>
+                      <p>
+                        {project.description}
+                        {project.team && (
+                          <>
+                            <br />
+                            <span className="font-bold">Team:</span>{" "}
+                            <a
+                              href={project.teamLink}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {project.team}
+                            </a>
+                          </>
+                        )}
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 lg:grid-flow-col place-content-center mt-auto">
+                      {project.links.map((botLink, index) => {
+                        return (
+                          <a
+                            className={classNames(
+                              "btn",
+                              index === 0 ? "btn-primary" : "btn-secondary"
+                            )}
+                            href={botLink.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            key={index}
+                          >
+                            {botLink.title}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects */}
-      <h2 className="projectSectionHeader">Projects</h2>
-      <section className="px-5 pb-10">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap -m-4 mx-auto">
-            {projects.map((project, index) => {
-              return (
-                <div className="p-4 md:w-1/3 mx-auto" key={index}>
-                  <div className="border-opacity-60 flex flex-col rounded-lg overflow-hidden h-full border-2 border-gray-200">
-                    {/* Project Image */}
-                    <img
-                      className="h-36 w-full object-cover bg-white"
-                      src={project.image}
-                      alt={project.image_alt}
-                    />
-                    {/* Project Info */}
-                    <div className="p-6 flex-initial grow">
-                      <h2 className="projectTypeText">
-                        <span>{project.type}</span>
-                        {/* Verified Badge */}
-                        {project.verified && (
-                          <a
-                            className="btn-verified-bot ml-1 inline-flex align-middle"
-                            href="https://support-dev.discord.com/hc/en-us/articles/6207083765655-What-is-Bot-Verification-"
-                            target={"_blank"}
-                            rel="noreferrer"
-                            title="Verified Discord Bot"
-                          >
-                            <div className="inline-flex pr-1">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-4 w-4 ml-1 mr-1"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth={2}
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M5 13l4 4L19 7"
-                                />
-                              </svg>
-                              <span>Verified Bot</span>
-                            </div>
-                          </a>
-                        )}
-                      </h2>
-                      <h1 className="projectTitleText">{project.title}</h1>
-                      <p className="projectDescText">{project.description}</p>
-                    </div>
-                    {/* Project Links */}
-                    {project.botLinks && (
-                      <div className="container w-full align-bottom p-2">
-                        <div className="grid grid-cols-2 gap-2 pt-2 mx-auto">
-                          {/* md:grid-cols-2 */}
-                          {project.botLinks.map((link, index) => {
-                            return (
-                              <a
-                                className="btn-normal"
-                                href={link.link}
-                                target="_blank"
-                                rel="noreferrer"
-                                key={index}
-                              >
-                                <span className="inline-flex p-2 md:p-0">
-                                  {link.title}
-                                </span>
-                              </a>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+          );
+        })}
+      {/* floating bar */}
+      <div
+        className={classNames(
+          "sticky bottom-2 flex flex-row place-content-center duration-300 transition-opacity items-center gap-2 rounded-lg p-2 z-50 bg-slate-900/40 w-fit mx-auto",
+          landingMeActionVisible ? "opacity-0" : "opacity-100"
+        )}
+      >
+        <button
+          data-tip="Previous Project"
+          className="btn btn-secondary tooltip"
+          onClick={() => setCurrentProject(currentProject - 1)}
+          disabled={currentProject === 0}
+        >
+          <ArrowLeftIcon className="w-5 h-5" />
+        </button>
+        <button
+          data-tip="Next Project"
+          className="btn btn-secondary tooltip"
+          onClick={() => setCurrentProject(currentProject + 1)}
+          disabled={currentProject === projects.length - 1}
+        >
+          <ArrowRightIcon className="w-5 h-5" />
+        </button>
+      </div>
     </div>
   );
 }
