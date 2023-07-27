@@ -3,5 +3,5 @@
 }
 
 .socials-btn {
-  @apply btn btn-secondary btn-wide;
+  @apply btn btn-secondary btn-md btn-wide;
 }
