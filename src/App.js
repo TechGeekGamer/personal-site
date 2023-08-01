@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="md:snap-y md:snap-mandatory h-screen overflow-scroll">
       {/* Intro */}
-      <section className="container mx-auto grid place-content-center p-4 h-screen snap-center">
+      <section className="container mx-auto grid place-content-center p-4 h-screen md:snap-start">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <div className="order-2">
             <article className="prose max-w-lg">
@@ -62,8 +62,7 @@ function App() {
               <button className="p-2 bg-neutral rounded w-full" onClick={() => {
                 document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "end" });
               }}>
-                <span className="font-bold">Hint:</span> Scroll down to see some of the
-                projects I've worked on! <ArrowDownIcon className="w-6 h-6 inline-block float-right animate-pulse motion-reduce:animate-none" />
+                Scroll down to see some of the projects I've worked on! <ArrowDownIcon className="w-6 h-6 inline-block float-right animate-pulse motion-reduce:animate-none" />
               </button>
             </div>
 
@@ -81,7 +80,7 @@ function App() {
       {/* Projects */}
       <section
         id="projects"
-        className="snap-center"
+        className="md:snap-center"
         style={{
           backgroundImage: `url(${projects[currentProject].lgImage ?? "me.png"})`,
           backgroundPosition: "center",
@@ -148,7 +147,7 @@ function App() {
                 {projects[currentProject].description}
               </p>
               {projects[currentProject].team && (
-                <span className="text-center md:text-left">
+                <div className="text-center md:text-left">
                   <UsersIcon className="w-5 h-5 inline-block mr-1" />
                   <span className="font-bold">Team:</span>{" "}
                   <a
@@ -158,7 +157,7 @@ function App() {
                   >
                     {projects[currentProject].team}
                   </a>
-                </span>
+                </div>
               )}
               <div className="flex flex-wrap grid-flow-col gap-4 my-4 place-content-center">
                 {projects[currentProject].links.map((botLink, index) => {
