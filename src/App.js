@@ -40,11 +40,11 @@ function App() {
               <h1 className="introHeader text-center md:text-left">
                 Hey, I'm Daniel!
               </h1>
-              <p>
+              <p className="text-center md:text-left">
                 I'm a (soon to be) college student, primarily interested in
                 Computer Science and Web Development.
               </p>
-              <p>
+              <p className="text-center md:text-left">
                 I've always been interested in computers and technology, but
                 didn't really start getting interested in programming until the
                 COVID-19 pandemic started and I had more time at home. So far, I've learned a lot with
