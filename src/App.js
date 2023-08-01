@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="snap-y snap-mandatory h-screen overflow-scroll">
       {/* Intro */}
-      <section className="container mx-auto grid place-content-center p-4 h-screen md:snap-start">
+      <section className="container mx-auto grid place-content-center p-4 h-screen snap-start">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <div className="order-2">
             <article className="prose max-w-lg">
@@ -97,7 +97,7 @@ function App() {
       {/* Projects */}
       <section
         id="projects"
-        className="md:snap-center"
+        className="snap-center"
         style={{
           backgroundImage: `url(${projects[currentProject].lgImage ?? "me.png"})`,
           backgroundPosition: "center",
