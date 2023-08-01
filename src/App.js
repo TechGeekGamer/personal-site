@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import {
   ArrowDownIcon,
@@ -12,24 +12,57 @@ const links = require("./assets/links.json");
 
 function App() {
   const [currentProject, setCurrentProject] = useState(0);
-    useEffect(() => {
-      function onHashChange() {
-        const hash = window.location.hash;
-        if (hash.startsWith("#projects")) {
-          if (hash.split("#projects-")[1]) {
-            const project = hash.split("#projects-")[1];
-            if (projects.findIndex((p) => p.id === project) !== -1)
-              setCurrentProject(projects.findIndex((p) => p.id === project));
+  const [mainPageInView, setMainPageInView] = useState(true);
+  const meRef = useRef(null);
+  // Check if the user has scrolled past the intro section, and if they have, set the background image to the current project
+  useEffect(() => {
+    // Create observer to detect helloTitle?.current leaving the viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          console.log("Main page in view: " + entry.isIntersecting);
+          if (entry.isIntersecting) {
+            setMainPageInView(true);
+          } else {
+            setMainPageInView(false);
           }
-          document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "end" });
+        });
+      },
+      { threshold: [0] }
+    );
+    observer.observe(meRef.current);
+    console.log("Observer started");
+
+    // Cleanup
+    return () => {
+      observer.disconnect();
+    };
+  }, [meRef]);
+  // If meRef is in view, remove the hash from the URL
+  useEffect(() => {
+    if (mainPageInView) {
+      window.location.hash = "";
+    }
+  }, [mainPageInView]);
+  // Check if the URL has a hash, and if it does, scroll to the project, and detect changes to the hash
+  useEffect(() => {
+    function onHashChange() {
+      const hash = window.location.hash;
+      if (hash.startsWith("#projects")) {
+        if (hash.split("#projects-")[1]) {
+          const project = hash.split("#projects-")[1];
+          if (projects.findIndex((p) => p.id === project) !== -1)
+            setCurrentProject(projects.findIndex((p) => p.id === project));
         }
+        document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "end" });
       }
-      onHashChange();
-      window.addEventListener("hashchange", () => onHashChange());
-      return () => {
-        window.removeEventListener("hashchange", () => { });
-      }
-    }, []);
+    }
+    onHashChange();
+    window.addEventListener("hashchange", () => onHashChange());
+    return () => {
+      window.removeEventListener("hashchange", () => { });
+    }
+  }, []);
   return (
     <div className="snap-y snap-mandatory h-screen overflow-scroll">
       {/* Intro */}
@@ -87,7 +120,7 @@ function App() {
           <div className="flex flex-col justify-center items-center">
             <div className="avatar">
               <div className="w-32 md:w-64 rounded-full">
-                <img src="me.png" alt="Icon for Daniel" />
+                <img src="me.png" alt="Icon for Daniel" ref={meRef} />
               </div>
             </div>
           </div>
@@ -104,33 +137,36 @@ function App() {
           backgroundSize: "cover",
           transition: "background-image 0.3s ease-in-out",
         }}>
+        {<div className="flex flex-row items-center fixed gap-2 z-20 top-10 right-10" style={{
+         opacity: mainPageInView ? 0 : 1,
+         transition: "opacity 0.3s ease-in-out",
+        }}>
+          <button
+            data-tip="Previous Project"
+            className="btn btn-secondary tooltip"
+            onClick={() => {
+              setCurrentProject(currentProject - 1);
+              window.location.hash = `#projects-${projects[currentProject - 1].id}`;
+            }}
+            disabled={currentProject === 0}
+          >
+            <ArrowLeftIcon className="w-5 h-5" />
+          </button>
+          <button
+            data-tip="Next Project"
+            className="btn btn-secondary tooltip"
+            onClick={() => {
+              setCurrentProject(currentProject + 1);
+              window.location.hash = `#projects-${projects[currentProject + 1].id}`;
+            }}
+            disabled={currentProject === projects.length - 1}
+          >
+            <ArrowRightIcon className="w-5 h-5" />
+          </button>
+        </div>}
         <div className="grid place-content-center h-screen bg-neutral/50 backdrop-blur-md">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             <div className="flex flex-col justify-center items-center md:order-2 order-0">
-              <div className="flex flex-row items-center gap-2 absolute z-10 top-10 right-10">
-                <button
-                  data-tip="Previous Project"
-                  className="btn btn-secondary tooltip"
-                  onClick={() => {
-                    setCurrentProject(currentProject - 1);
-                    window.location.hash = `#projects-${projects[currentProject - 1].id}`;
-                  }}
-                  disabled={currentProject === 0}
-                >
-                  <ArrowLeftIcon className="w-5 h-5" />
-                </button>
-                <button
-                  data-tip="Next Project"
-                  className="btn btn-secondary tooltip"
-                  onClick={() => {
-                    setCurrentProject(currentProject + 1);
-                    window.location.hash = `#projects-${projects[currentProject + 1].id}`;
-                  }}
-                  disabled={currentProject === projects.length - 1}
-                >
-                  <ArrowRightIcon className="w-5 h-5" />
-                </button>
-              </div>
               <div className="avatar">
                 <div className="w-32 md:w-64 rounded-full shadow-lg drop-shadow-lg">
                   <img
