@@ -21,7 +21,6 @@ function App() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          console.log("Main page in view: " + entry.isIntersecting);
           if (entry.isIntersecting) {
             setMainPageInView(true);
           } else {
@@ -32,19 +31,12 @@ function App() {
       { threshold: [0] }
     );
     observer.observe(meRef.current);
-    console.log("Observer started");
 
     // Cleanup
     return () => {
       observer.disconnect();
     };
   }, [meRef]);
-  // If meRef is in view, remove the hash from the URL
-  useEffect(() => {
-    if (mainPageInView) {
-      window.location.hash = "";
-    }
-  }, [mainPageInView]);
   // Check if the URL has a hash, and if it does, scroll to the project, and detect changes to the hash
   useEffect(() => {
     function onHashChange() {
