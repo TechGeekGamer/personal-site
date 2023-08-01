@@ -97,7 +97,7 @@ function App() {
       {/* Projects */}
       <section
         id="projects"
-        className="snap-center"
+        className="snap-always snap-center"
         style={{
           backgroundImage: `url(${projects[currentProject].lgImage ?? "me.png"})`,
           backgroundPosition: "center",
@@ -107,7 +107,7 @@ function App() {
         <div className="grid place-content-center h-screen bg-neutral/50 backdrop-blur-md">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             <div className="flex flex-col justify-center items-center md:order-2 order-0">
-              <div className="flex flex-row items-center gap-2 fixed z-10 top-10 right-10">
+              <div className="flex flex-row items-center gap-2 absolute z-10 top-10 right-10">
                 <button
                   data-tip="Previous Project"
                   className="btn btn-secondary tooltip"
