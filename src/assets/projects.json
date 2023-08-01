@@ -27,7 +27,13 @@
         "link": "https://top.gg/bot/743234197484994610/"
       }
     ],
-    "verified": true
+    "verified": true,
+    "languages": [
+      {
+        "name": "TypeScript",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+      }
+    ]
   },
   {
     "type": "Discord Bot",
@@ -57,10 +63,10 @@
         "link": "https://top.gg/bot/925577249586032641"
       }
     ],
-    "alerts": [
+    "languages": [
       {
-        "type": "primary",
-        "text": "Recently updated! 🎉"
+        "name": "TypeScript",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
       }
     ]
   },
@@ -91,6 +97,12 @@
         "title": "Upvote Bot",
         "link": "https://top.gg/bot/817248082126700565/"
       }
+    ],
+    "languages": [
+      {
+        "name": "Python",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+      }
     ]
   },
   {
@@ -112,6 +124,12 @@
       {
         "title": "Support Server",
         "link": "https://discord.gg/eP8ab7wsp4"
+      }
+    ],
+    "languages": [
+      {
+        "name": "TypeScript",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
       }
     ]
   },
