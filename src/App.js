@@ -13,6 +13,7 @@ const links = require("./assets/links.json");
 function App() {
   const [currentProject, setCurrentProject] = useState(0);
   const [mainPageInView, setMainPageInView] = useState(true);
+  const [buttonsDisabled, setButtonsDisabled] = useState(false);
   const meRef = useRef(null);
   // Check if the user has scrolled past the intro section, and if they have, set the background image to the current project
   useEffect(() => {
@@ -138,8 +139,8 @@ function App() {
           transition: "background-image 0.3s ease-in-out",
         }}>
         {<div className="flex flex-row items-center fixed gap-2 z-20 top-10 right-10" style={{
-         opacity: mainPageInView ? 0 : 1,
-         transition: "opacity 0.3s ease-in-out",
+          opacity: mainPageInView ? 0 : 1,
+          transition: "opacity 0.3s ease-in-out",
         }}>
           <button
             data-tip="Previous Project"
@@ -147,8 +148,13 @@ function App() {
             onClick={() => {
               setCurrentProject(currentProject - 1);
               window.location.hash = `#projects-${projects[currentProject - 1].id}`;
+              // disable buttons for duration of animation
+              setButtonsDisabled(true);
+              setTimeout(() => {
+                setButtonsDisabled(false);
+              }, 300);
             }}
-            disabled={currentProject === 0}
+            disabled={currentProject === 0 || buttonsDisabled}
           >
             <ArrowLeftIcon className="w-5 h-5" />
           </button>
@@ -158,8 +164,13 @@ function App() {
             onClick={() => {
               setCurrentProject(currentProject + 1);
               window.location.hash = `#projects-${projects[currentProject + 1].id}`;
+              // disable buttons for duration of animation
+              setButtonsDisabled(true);
+              setTimeout(() => {
+                setButtonsDisabled(false);
+              }, 300);
             }}
-            disabled={currentProject === projects.length - 1}
+            disabled={currentProject === projects.length - 1 || buttonsDisabled}
           >
             <ArrowRightIcon className="w-5 h-5" />
           </button>
