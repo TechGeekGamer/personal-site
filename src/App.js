@@ -31,7 +31,7 @@ function App() {
       }
     }, []);
   return (
-    <div className="md:snap-y md:snap-mandatory h-screen overflow-scroll">
+    <div className="snap-y snap-mandatory h-screen overflow-scroll">
       {/* Intro */}
       <section className="container mx-auto grid place-content-center p-4 h-screen md:snap-start">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
