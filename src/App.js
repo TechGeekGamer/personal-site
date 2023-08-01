@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import {
   ArrowDownIcon,
@@ -11,8 +11,25 @@ const projects = require("./assets/projects.json");
 const links = require("./assets/links.json");
 
 function App() {
-  const landingMeIcon = useRef(null);
   const [currentProject, setCurrentProject] = useState(0);
+    useEffect(() => {
+      function onHashChange() {
+        const hash = window.location.hash;
+        if (hash.startsWith("#projects")) {
+          if (hash.split("#projects-")[1]) {
+            const project = hash.split("#projects-")[1];
+            if (projects.findIndex((p) => p.id === project) !== -1)
+              setCurrentProject(projects.findIndex((p) => p.id === project));
+          }
+          document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "end" });
+        }
+      }
+      onHashChange();
+      window.addEventListener("hashchange", () => onHashChange());
+      return () => {
+        window.removeEventListener("hashchange", () => { });
+      }
+    }, []);
   return (
     <div className="md:snap-y md:snap-mandatory h-screen overflow-scroll">
       {/* Intro */}
@@ -20,7 +37,7 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <div className="order-2">
             <article className="prose max-w-lg">
-              <h1 className="introHeader text-center md:text-left" ref={landingMeIcon}>
+              <h1 className="introHeader text-center md:text-left">
                 Hey, I'm Daniel!
               </h1>
               <p>
@@ -94,7 +111,10 @@ function App() {
                 <button
                   data-tip="Previous Project"
                   className="btn btn-secondary tooltip"
-                  onClick={() => setCurrentProject(currentProject - 1)}
+                  onClick={() => {
+                    setCurrentProject(currentProject - 1);
+                    window.location.hash = `#projects-${projects[currentProject - 1].id}`;
+                  }}
                   disabled={currentProject === 0}
                 >
                   <ArrowLeftIcon className="w-5 h-5" />
@@ -102,7 +122,10 @@ function App() {
                 <button
                   data-tip="Next Project"
                   className="btn btn-secondary tooltip"
-                  onClick={() => setCurrentProject(currentProject + 1)}
+                  onClick={() => {
+                    setCurrentProject(currentProject + 1);
+                    window.location.hash = `#projects-${projects[currentProject + 1].id}`;
+                  }}
                   disabled={currentProject === projects.length - 1}
                 >
                   <ArrowRightIcon className="w-5 h-5" />
@@ -125,7 +148,7 @@ function App() {
             </div>
 
             <article className="prose max-w-lg space-y-2 p-4">
-              <h1 className="introHeader place-content-center md:place-content-start flex items-center gap-2" ref={landingMeIcon}>
+              <h1 className="introHeader place-content-center md:place-content-start flex items-center gap-2">
                 <span> {projects[currentProject].name} </span>
                 {projects[currentProject].languages?.map((language, index) => {
                   return (
