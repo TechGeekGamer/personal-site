@@ -39,6 +39,11 @@ function App() {
   }, [meRef]);
   // Check if the URL has a hash, and if it does, scroll to the project, and detect changes to the hash
   useEffect(() => {
+    // Cache images to prevent flickering
+    projects.forEach((project) => {
+      const img = new Image();
+      img.src = project.lgImage;
+    });
     function onHashChange() {
       const hash = window.location.hash;
       if (hash.startsWith("#projects")) {
@@ -47,14 +52,16 @@ function App() {
           if (projects.findIndex((p) => p.id === project) !== -1)
             setCurrentProject(projects.findIndex((p) => p.id === project));
         }
-        document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "end" });
+        document
+          .getElementById("projects")
+          .scrollIntoView({ behavior: "smooth", block: "end" });
       }
     }
     onHashChange();
     window.addEventListener("hashchange", () => onHashChange());
     return () => {
-      window.removeEventListener("hashchange", () => { });
-    }
+      window.removeEventListener("hashchange", () => {});
+    };
   }, []);
   return (
     <div className="snap-y snap-mandatory h-screen overflow-scroll">
@@ -73,8 +80,9 @@ function App() {
               <p className="text-center md:text-left">
                 I've always been interested in computers and technology, but
                 didn't really start getting interested in programming until the
-                COVID-19 pandemic started and I had more time at home. So far, I've learned a lot with
-                the Discord platform (Bots and OAuth2), but I hope to learn more outside the platform.
+                COVID-19 pandemic started and I had more time at home. So far,
+                I've learned a lot with the Discord platform (Bots and OAuth2),
+                but I hope to learn more outside the platform.
               </p>
             </article>
             {/* Links */}
@@ -102,13 +110,18 @@ function App() {
             </div>
 
             <div className="flex flex-row place-content-center gap-2">
-              <button className="p-2 bg-neutral rounded w-full" onClick={() => {
-                document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "end" });
-              }}>
-                Scroll down to see some of the projects I've worked on! <ArrowDownIcon className="w-6 h-6 inline-block float-right animate-pulse motion-reduce:animate-none" />
+              <button
+                className="p-2 bg-neutral rounded w-full"
+                onClick={() => {
+                  document
+                    .getElementById("projects")
+                    .scrollIntoView({ behavior: "smooth", block: "end" });
+                }}
+              >
+                Scroll down to see some of the projects I've worked on!{" "}
+                <ArrowDownIcon className="w-6 h-6 inline-block float-right animate-pulse motion-reduce:animate-none" />
               </button>
             </div>
-
           </div>
           <div className="flex flex-col justify-center items-center">
             <div className="avatar">
@@ -125,48 +138,62 @@ function App() {
         id="projects"
         className="snap-always snap-center"
         style={{
-          backgroundImage: `url(${projects[currentProject].lgImage ?? "me.png"})`,
+          backgroundImage: `url(${
+            projects[currentProject].lgImage ?? "me.png"
+          })`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           transition: "background-image 0.3s ease-in-out",
-        }}>
-        {<div className="flex flex-row items-center fixed gap-2 z-20 top-10 right-10" style={{
-          opacity: mainPageInView ? 0 : 1,
-          transition: "opacity 0.3s ease-in-out",
-        }}>
-          <button
-            data-tip="Previous Project"
-            className="btn btn-secondary tooltip"
-            onClick={() => {
-              setCurrentProject(currentProject - 1);
-              window.location.hash = `#projects-${projects[currentProject - 1].id}`;
-              // disable buttons for duration of animation
-              setButtonsDisabled(true);
-              setTimeout(() => {
-                setButtonsDisabled(false);
-              }, 300);
+        }}
+      >
+        {
+          <div
+            className="flex flex-row items-center fixed gap-2 z-20 top-10 right-10"
+            style={{
+              opacity: mainPageInView ? 0 : 1,
+              transition: "opacity 0.3s ease-in-out",
             }}
-            disabled={currentProject === 0 || buttonsDisabled}
           >
-            <ArrowLeftIcon className="w-5 h-5" />
-          </button>
-          <button
-            data-tip="Next Project"
-            className="btn btn-secondary tooltip"
-            onClick={() => {
-              setCurrentProject(currentProject + 1);
-              window.location.hash = `#projects-${projects[currentProject + 1].id}`;
-              // disable buttons for duration of animation
-              setButtonsDisabled(true);
-              setTimeout(() => {
-                setButtonsDisabled(false);
-              }, 300);
-            }}
-            disabled={currentProject === projects.length - 1 || buttonsDisabled}
-          >
-            <ArrowRightIcon className="w-5 h-5" />
-          </button>
-        </div>}
+            <button
+              data-tip="Previous Project"
+              className="btn btn-secondary tooltip"
+              onClick={() => {
+                setCurrentProject(currentProject - 1);
+                window.location.hash = `#projects-${
+                  projects[currentProject - 1].id
+                }`;
+                // disable buttons for duration of animation
+                setButtonsDisabled(true);
+                setTimeout(() => {
+                  setButtonsDisabled(false);
+                }, 300);
+              }}
+              disabled={currentProject === 0 || buttonsDisabled}
+            >
+              <ArrowLeftIcon className="w-5 h-5" />
+            </button>
+            <button
+              data-tip="Next Project"
+              className="btn btn-secondary tooltip"
+              onClick={() => {
+                setCurrentProject(currentProject + 1);
+                window.location.hash = `#projects-${
+                  projects[currentProject + 1].id
+                }`;
+                // disable buttons for duration of animation
+                setButtonsDisabled(true);
+                setTimeout(() => {
+                  setButtonsDisabled(false);
+                }, 300);
+              }}
+              disabled={
+                currentProject === projects.length - 1 || buttonsDisabled
+              }
+            >
+              <ArrowRightIcon className="w-5 h-5" />
+            </button>
+          </div>
+        }
         <div className="grid place-content-center h-screen bg-neutral/50 backdrop-blur-md">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             <div className="flex flex-col justify-center items-center md:order-2 order-0">
@@ -179,7 +206,6 @@ function App() {
                     onError={(e) => {
                       e.onError = null;
                       e.currentTarget.src = "me.png";
-
                     }}
                   />
                 </div>
@@ -237,7 +263,6 @@ function App() {
                 })}
               </div>
             </article>
-
           </div>
         </div>
       </section>
