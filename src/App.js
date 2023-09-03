@@ -12,7 +12,9 @@ const links = require("./assets/links.json");
 const preloadImages = [
   ...projects.map((project) => project.lgImage),
   ...projects.map((project) => project.image),
-  ...projects.filter((project) => project.languages?.icon).map((project) => project.languages?.icon),
+  ...projects
+    .filter((project) => project.languages?.icon)
+    .map((project) => project.languages?.icon),
   ...links.map((link) => link.icon),
   "me.png",
 ];
@@ -123,9 +125,8 @@ function App() {
         >
           <div className="flex items-center flex-wrap gap-2 bg-base-300 rounded p-2 max-w-xl">
             <span className="text-error text-lg">
-              Failed to load some images! Please refresh the
-              page. If this issue persists, please contact me on Discord at
-              @1danielc or{" "}
+              Failed to load some images! Please refresh the page. If this issue
+              persists, please contact me on Discord at @1danielc or{" "}
               <a
                 href={"https://github.com/TechGeekGamer/personal-site"}
                 target="_blank"
@@ -149,15 +150,17 @@ function App() {
                   Hey, I'm Daniel!
                 </h1>
                 <p className="text-center md:text-left">
-                  I'm a (soon to be) college student, primarily interested in
-                  Computer Science and Web Development.
+                  I'm a college student majoring in Computer Science, but in my
+                  free time I enjoy dabbling in web development.
                 </p>
                 <p className="text-center md:text-left">
                   I've always been interested in computers and technology, but
                   didn't really start getting interested in programming until
                   the COVID-19 pandemic started and I had more time at home. So
-                  far, I've learned a lot with the Discord platform (Bots and
-                  OAuth2), but I hope to learn more outside the platform.
+                  far, I've learned a lot with the developer platform that{" "}
+                  <a href="https://discord.com">Discord</a> provides, and I've
+                  been able to get some programming experience through various
+                  projects.
                 </p>
               </article>
               {/* Links */}
